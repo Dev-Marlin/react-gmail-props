@@ -4,6 +4,7 @@ import initialEmails from './data/emails'
 
 import './styles/App.css'
 import Emails from './components/Emails'
+import EmailWindow from './components/EmailWindow'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
 
@@ -13,6 +14,8 @@ function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [openedEmail, setOpenedEmail] = useState();
+  const [emailVisible, setEmailVisible] = useState(false);
 
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
@@ -33,6 +36,15 @@ function App() {
         email.id === targetEmail.id ? { ...email, read: !email.read } : email
       )
     setEmails(updatedEmails)
+  }
+
+  function showMail(e, email)
+  {
+    if(e.target == e.currentTarget || e.target.tagName != 'INPUT')
+    {
+      setOpenedEmail(email);
+      setEmailVisible(true);
+    }
   }
 
   let filteredEmails = emails
@@ -89,7 +101,8 @@ function App() {
         </ul>
       </nav>
 
-      <Emails filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}></Emails>
+      <Emails visible={emailVisible} filteredEmails={filteredEmails} toggleRead={toggleRead} toggleStar={toggleStar} showMail={showMail}></Emails>
+      <EmailWindow email={openedEmail} visible={emailVisible} setEmailVisible={setEmailVisible}></EmailWindow>
     </div>
   )
 }

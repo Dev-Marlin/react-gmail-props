@@ -1,11 +1,12 @@
 import React from 'react'
 import '../styles/styleComponents/Email.css'
-function Email({email, index, toggleRead, toggleStar}) {
+function Email({email, index, toggleRead, toggleStar, showMail}) {
   return (
     <>
         <li
-            key={index}
+
             className={`email ${email.read ? 'read' : 'unread'}`}
+            onClick={(e) => showMail(e, email)}
         >
             <div className="select">
             <input

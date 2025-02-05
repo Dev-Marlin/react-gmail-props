@@ -1,0 +1,41 @@
+.emailWindow{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensures it's on top of other content */
+}
+
+.emailHeader {
+    display: flex;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.closeButton {
+    width: 50px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.emails div h2 {
+    width: fit-content;
+    margin-right: auto;
+}
+
+.closeButton:hover
+{
+    box-shadow: -1px 1px 2px 0 #00000040;
+    z-index: 1;
+    background-color: rgb(210, 210, 210);
+}
