@@ -38,5 +38,29 @@ export default [
     text: `Hello Nico`,
     starred: true,
     read: false
+  },
+  {
+    id: 6,
+    sender: `Patrick`,
+    title: `abc`,
+    text: `Hello Nico`,
+    starred: true,
+    read: false
+  },
+  {
+    id: 7,
+    sender: `Patrick`,
+    title: `ab`,
+    text: `Hello Nico`,
+    starred: true,
+    read: false
+  },
+  {
+    id: 8,
+    sender: `Patrick`,
+    title: `a`,
+    text: `Hello Nico`,
+    starred: true,
+    read: false
   }
 ]
